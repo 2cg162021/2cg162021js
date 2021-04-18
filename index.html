@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Odliczanie czasu</title>
+
+    <script type="text/javascript">
+        function odliczanie()
+        {
+            var dzisiaj = new Date();
+            var dzien = dzisiaj.getDate();
+            var miesiac = dzisiaj.getMonth() + 1;
+            var rok = dzisiaj.getFullYear();
+            var godzina = dzisiaj.getHours();
+            var minuta = dzisiaj.getMinutes();
+            var sekunda = dzisiaj.getSeconds();
+            var milisekundy = dzisiaj.getTime();
+
+            var end = new Date("12/31/2021");
+		    var endDzien = end.getDate();
+		    var endMiesiac = end.getMonth()+1;
+		    var endRok = end.getFullYear();
+		    var milisekundy2 = end.getTime();
+            var endgodzina = end.getHours();
+
+            var pozostalo = milisekundy2 - milisekundy; 
+		    var dni = Math.floor(pozostalo/86400000); 
+            var godzinydo = Math.floor(pozostalo/3600000);
+            var minutydo = Math.floor(pozostalo/60000);
+            var sekundydo = Math.floor(pozostalo/1000);
+
+            document.getElementById("aktualnaData").innerHTML = "Aktualna data: "+dzien+"/"+miesiac+"/"+rok+" | "+godzina+":"+minuta+":"+sekunda; 
+		    document.getElementById("dataWydarzenia").innerHTML = "Data Sylwestra: "+endDzien+"/"+endMiesiac+"/"+endRok;
+		    document.getElementById("dniDoWydarzenia").innerHTML ="Do końca roku pozostało: "+ dni+" dni";
+            document.getElementById("godzinyDoWydarzenia").innerHTML = +godzinydo+" godzin"
+            document.getElementById("minutyDoWydarzenia").innerHTML = +minutydo+" minut"
+            document.getElementById("sekundyDoWydarzenia").innerHTML = +sekundydo+" sekund"
+            
+
+            setTimeout("odliczanie()", 1000)
+
+        }
+        
+        
+    </script>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body onload="odliczanie();">
+
+    <div id="aktualnaData">...</div> 
+
+	<br/>
+	
+	<div id="dataWydarzenia">...</div>
+
+    <br/>
+    <br/>
+    <br/>
+
+	
+	<div id="dniDoWydarzenia">...</div>
+
+    <br/>
+
+    <div id="godzinyDoWydarzenia">...</div>
+
+    <br/>
+
+    <div id="minutyDoWydarzenia">...</div>
+
+    <br/>
+
+    <div id="sekundyDoWydarzenia">...</div>
+	
+	<script type="text/javascript" >
+	odliczanie();
+</script>
+
+</body>
+
+</html>
